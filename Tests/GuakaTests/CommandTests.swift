@@ -11,6 +11,20 @@ import XCTest
 
 class CommandTests: XCTestCase {
 
+	static var allTests: [(String, (CommandTests) -> () throws -> Void)] {
+		return [
+			("testItCanAddCommands", testItCanAddCommands),
+			("testItCanAddCommandsThroughParent", testItCanAddCommandsThroughParent),
+			("testItCanRemoveACommands", testItCanRemoveACommands),
+			("testItCanAddFlags", testItCanAddFlags),
+			("testItCanAddMultipleFlags", testItCanAddMultipleFlags),
+			("testItCanRemoveAFlag", testItCanRemoveAFlag),
+			("testItGetsNameForUsage", testItGetsNameForUsage),
+			("testItThrowsErrorForWrongUsage", testItThrowsErrorForWrongUsage),
+			("testItCanBeInitializedWith3Params", testItCanBeInitializedWith3Params)
+		]
+	}
+
   override func setUp() {
     setupTestSamples()
   }
@@ -112,5 +126,4 @@ class CommandTests: XCTestCase {
                   run: Run?) {}
     }
   }
-  
 }

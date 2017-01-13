@@ -11,6 +11,25 @@ import XCTest
 
 class CommandExecutionTests: XCTestCase {
 
+	static var allTests: [(String, (CommandExecutionTests) -> () throws -> Void)] {
+		return [
+			("testItCanExecuteShowCommand", testItCanExecuteShowCommand),
+			("testItCanExecuteShowCommandWithArgs", testItCanExecuteShowCommandWithArgs),
+			("testItCanExecuteRemoteCommand", testItCanExecuteRemoteCommand),
+			("testItCatchesExceptionsInExecution", testItCatchesExceptionsInExecution),
+			("testItCatchesTheHelp", testItCatchesTheHelp),
+			("testItCatchesTheHelpThatIsOverriden", testItCatchesTheHelpThatIsOverriden),
+			("testItCatchesTheCorrectAlias", testItCatchesTheCorrectAlias),
+			("testItCatchesTheCorrectAlias2", testItCatchesTheCorrectAlias2),
+			("testItCanGetCommandToExecute", testItCanGetCommandToExecute),
+			("testItPrintsThatCommandIsDeprecatedWhenExecutingCommand", testItPrintsThatCommandIsDeprecatedWhenExecutingCommand),
+			("testItPrintsThatFlagIsDeprecatedWhenExecutingCommand", testItPrintsThatFlagIsDeprecatedWhenExecutingCommand),
+			("testItItDoesNotPrintsFlagIfWeDidNotUseTheFlag", testItItDoesNotPrintsFlagIfWeDidNotUseTheFlag),
+			("testItItPrintsBothFlagAndCommandAreDeprecated", testItItPrintsBothFlagAndCommandAreDeprecated),
+			("testItCatchesRequiredFlagNotSet", testItCatchesRequiredFlagNotSet)
+		]
+	}
+
   override func setUp() {
     setupTestSamples()
   }

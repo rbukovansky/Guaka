@@ -11,6 +11,25 @@ import XCTest
 
 class FlagTests: XCTestCase {
 
+	static var allTests: [(String, (FlagTests) -> () throws -> Void)] {
+		return [
+			("testItGeneratesAPrintableNameWithLongNameAndDescription", testItGeneratesAPrintableNameWithLongNameAndDescription),
+			("testItGeneratesAPrintableNameWithLongNameAndDescriptionAndShortName", testItGeneratesAPrintableNameWithLongNameAndDescriptionAndShortName),
+			("testItGeneratesAPrintableNameForRequiredFlagsWithtoutDesc", testItGeneratesAPrintableNameForRequiredFlagsWithtoutDesc),
+			("testItGeneratesAPrintableNameForRequiredFlagsWithDesc", testItGeneratesAPrintableNameForRequiredFlagsWithDesc),
+			("testItGeneratesAPrintableNameForNonRequiredFlagsWithDesc", testItGeneratesAPrintableNameForNonRequiredFlagsWithDesc),
+			("testItGeneratesAPrintableDescription", testItGeneratesAPrintableDescription),
+			("testItCanPrintAFlagTable1ForLocalFlags", testItCanPrintAFlagTable1ForLocalFlags),
+			("testItCanPrintAFlagTable2ForLocalFlags", testItCanPrintAFlagTable2ForLocalFlags),
+			("testItCanPrintAFlagTableWithRequiredFlags", testItCanPrintAFlagTableWithRequiredFlags),
+			("testItCanPrintAFlagTable1ForGlobalFlags", testItCanPrintAFlagTable1ForGlobalFlags),
+			("testItCanPrintAFlagTable2ForGlobalFlags", testItCanPrintAFlagTable2ForGlobalFlags),
+			("testItTestsLongFlagName", testItTestsLongFlagName),
+			("testItTestsShortFlagName", testItTestsShortFlagName)
+		]
+	}
+
+
   func testItGeneratesAPrintableNameWithLongNameAndDescription() {
     let f = Flag(longName: "debug", value: 1, description: "Here is a desc")
     let s = FlagHelpGeneratorUtils.flagPrintableName(flag: FlagHelp(flag: f))

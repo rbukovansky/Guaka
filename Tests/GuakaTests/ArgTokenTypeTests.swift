@@ -11,6 +11,22 @@ import XCTest
 
 class ArgTokenTypeTests: XCTestCase {
 
+	static var allTests: [(String, (ArgTokenTypeTests) -> () throws -> Void)] {
+		return [
+			("testItParsesLongFlag", testItParsesLongFlag),
+			("testItParsesLongFlagWithEqual", testItParsesLongFlagWithEqual),
+			("testItParsesShortFlag", testItParsesShortFlag),
+			("testItParsesShortFlagWithEqual", testItParsesShortFlagWithEqual),
+			("testItParsesMultiShortFlag", testItParsesMultiShortFlag),
+			("testItParsesMultiShortFlagWithEqual", testItParsesMultiShortFlagWithEqual),
+			("testItParsesInvalidFlags", testItParsesInvalidFlags),
+			("testItParsesPositionalArgs", testItParsesPositionalArgs),
+			("testItKnowsAboutFlags", testItKnowsAboutFlags),
+			("testItKnowsAboutFlagsThatNeedsValue", testItKnowsAboutFlagsThatNeedsValue),
+			("testItReturnsFlagName", testItReturnsFlagName)
+		]
+	}
+
   func testItParsesLongFlag() {
     let v = ArgTokenType(fromString: "--long")
 

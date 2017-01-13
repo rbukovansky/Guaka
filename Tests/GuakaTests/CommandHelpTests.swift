@@ -11,6 +11,24 @@ import XCTest
 
 class CommandHelpTests: XCTestCase {
 
+	static var allTests: [(String, (CommandHelpTests) -> () throws -> Void)] {
+		return [
+			("testItCreatesACommandHelpFromACommandWithName", testItCreatesACommandHelpFromACommandWithName),
+			("testItCreatesACommandHelpFromACommandWithAliases", testItCreatesACommandHelpFromACommandWithAliases),
+			("testItCreatesACommandHelpFromACommandWithDeprecated", testItCreatesACommandHelpFromACommandWithDeprecated),
+			("testItCreatesACommandHelpFromACommandWithExample", testItCreatesACommandHelpFromACommandWithExample),
+			("testItCreatesACommandHelpFromACommandWithNoSubCommands", testItCreatesACommandHelpFromACommandWithNoSubCommands),
+			("testItCreatesACommandHelpFromACommandWithNoDescriptions", testItCreatesACommandHelpFromACommandWithNoDescriptions),
+			("testItCreatesACommandHelpFromACommandWithDescriptions", testItCreatesACommandHelpFromACommandWithDescriptions),
+			("testItCreatesACommandHelpFromACommandWithSubCommands", testItCreatesACommandHelpFromACommandWithSubCommands),
+			("testCommandThatHasGlobalFlags", testCommandThatHasGlobalFlags),
+			("testCommandThatHasLocalFlags", testCommandThatHasLocalFlags),
+			("testGeneratesFullName", testGeneratesFullName),
+			("testGeneratesFullUsage", testGeneratesFullUsage),
+			("testGeneratesFullUsageForCommandsWithUsage", testGeneratesFullUsageForCommandsWithUsage)
+		]
+	}
+
   override func setUp() {
     setupTestSamples()
   }
@@ -108,5 +126,4 @@ class CommandHelpTests: XCTestCase {
     show.usage = "show abcd"
     XCTAssertEqual(CommandHelp(command: show).fullUsage, "git remote show abcd")
   }
-  
 }

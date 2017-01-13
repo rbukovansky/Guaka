@@ -11,6 +11,25 @@ import XCTest
 
 class FlagSetTests: XCTestCase {
 
+	static var allTests: [(String, (FlagSetTests) -> () throws -> Void)] {
+		return [
+			("testItKnowsIfFlagIsBoolean", testItKnowsIfFlagIsBoolean),
+			("testItKnowsIfTokenIsSatisfied", testItKnowsIfTokenIsSatisfied),
+			("testItGetsPreparedFlags", testItGetsPreparedFlags),
+			("testItGetsDeafaultValueForPreparedFlags", testItGetsDeafaultValueForPreparedFlags),
+			("testItThrowsErrorForUnexpectedFlags", testItThrowsErrorForUnexpectedFlags),
+			("testAppendsHelpToFlagSet", testAppendsHelpToFlagSet),
+			("testItCanGetRequiredFlags1", testItCanGetRequiredFlags1),
+			("testItCanGetRequiredFlags2", testItCanGetRequiredFlags2),
+			("testItMakesSureAllRequiredFlagsAreSetWithError", testItMakesSureAllRequiredFlagsAreSetWithError),
+			("testItMakesSureAllRequiredFlagsAreSetWithErrorForMultipleFlags", testItMakesSureAllRequiredFlagsAreSetWithErrorForMultipleFlags),
+			("testItMakesSureAllRequiredFlagsAreSetWithErrorForMultipleFlagsEvenIfSomeAreSet", testItMakesSureAllRequiredFlagsAreSetWithErrorForMultipleFlagsEvenIfSomeAreSet),
+			("testItMakesSureAllRequiredFlagsAreSetWithSuccessIfFlagIsSet", testItMakesSureAllRequiredFlagsAreSetWithSuccessIfFlagIsSet),
+			("testItMakesSureAllRequiredFlagsAreSetWithSuccessIfMultipleFlagIsSet", testItMakesSureAllRequiredFlagsAreSetWithSuccessIfMultipleFlagIsSet),
+			("testItMakesSureAllRequiredFlagsAreSetWithSuccessIfNoRequiredFlags", testItMakesSureAllRequiredFlagsAreSetWithSuccessIfNoRequiredFlags)
+		]
+	}
+
   func testItKnowsIfFlagIsBoolean() {
     let fs = FlagSet(
       flags: [

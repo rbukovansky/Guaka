@@ -11,6 +11,15 @@ import XCTest
 
 class CustomFlagTypesTests: XCTestCase {
 
+	static var allTests: [(String, (CustomFlagTypesTests) -> () throws -> Void)] {
+		return [
+			("testItCanSetAFlagWithACustomType", testItCanSetAFlagWithACustomType),
+			("testItCanSetAFlagWithACustomTypeThatGeneratesAnError", testItCanSetAFlagWithACustomTypeThatGeneratesAnError),
+			("testItCanSetAFlagWithAnEnumWithSuccess", testItCanSetAFlagWithAnEnumWithSuccess),
+			("testItCanSetAFlagWithAnEnumWithError", testItCanSetAFlagWithAnEnumWithError)
+		]
+	}
+
   func testItCanSetAFlagWithACustomType() {
 
     struct CustomType: FlagValue {
@@ -66,7 +75,7 @@ class CustomFlagTypesTests: XCTestCase {
     }
   }
 
-  func testItCanSetAFlagWithAnEnumWtihSuccess() {
+  func testItCanSetAFlagWithAnEnumWithSuccess() {
 
     enum Animals: String, FlagValue {
       case dog = "dog"
@@ -98,7 +107,7 @@ class CustomFlagTypesTests: XCTestCase {
     XCTAssertEqual((val as! Animals), Animals.cat)
   }
 
-  func testItCanSetAFlagWithAnEnumWtihError() {
+  func testItCanSetAFlagWithAnEnumWithError() {
 
     enum Animals: String, FlagValue {
       case dog = "dog"
@@ -132,6 +141,4 @@ class CustomFlagTypesTests: XCTestCase {
       XCTFail()
     }
   }
-
-
 }

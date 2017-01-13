@@ -9,7 +9,36 @@
 import XCTest
 @testable import Guaka
 
-class CommandRunTests: XCTestCase {
+class CommandTypeRunTests: XCTestCase {
+
+	static var allTests: [(String, (CommandTypeRunTests) -> () throws -> Void)] {
+		return [
+			("testItRunsPreRunBeforeRun", testItRunsPreRunBeforeRun),
+			("testItPreRunReturnFalseExecutionIsHalted", testItPreRunReturnFalseExecutionIsHalted),
+			("testItRunsPostRunAfterRun", testItRunsPostRunAfterRun),
+			("testItCallsPreRunPostInOrder", testItCallsPreRunPostInOrder),
+			("testReturingFalseFromPreStopsPostToo", testReturingFalseFromPreStopsPostToo),
+			("testItFindsTheInheritablePreRunFromCurrentCommandIfAvailable", testItFindsTheInheritablePreRunFromCurrentCommandIfAvailable),
+			("testItFindsTheInheritablePreRunFromParentCommandIfAvailable", testItFindsTheInheritablePreRunFromParentCommandIfAvailable),
+			("testItFindsTheInheritablePreRunFromGrandParentCommandIfAvailable", testItFindsTheInheritablePreRunFromGrandParentCommandIfAvailable),
+			("testItHandlesCasesWherThereAreNoInheritablePreRun", testItHandlesCasesWherThereAreNoInheritablePreRun),
+			("testItFindsTheInheritablePostRunFromCurrentCommandIfAvailable", testItFindsTheInheritablePostRunFromCurrentCommandIfAvailable),
+			("testItFindsTheInheritablePostRunFromParentCommandIfAvailable", testItFindsTheInheritablePostRunFromParentCommandIfAvailable),
+			("testItFindsTheInheritablePostRunFromGrandParentCommandIfAvailable", testItFindsTheInheritablePostRunFromGrandParentCommandIfAvailable),
+			("testItHandlesCasesWherThereAreNoInheritablePostRun", testItHandlesCasesWherThereAreNoInheritablePostRun),
+			("testItRunsInheritablePreRunBeforeRun", testItRunsInheritablePreRunBeforeRun),
+			("testIfInheritablePreRunReturnFalseItAltersExecution", testIfInheritablePreRunReturnFalseItAltersExecution),
+			("testItRunsInheritablePreRunFromParentBeforeRun", testItRunsInheritablePreRunFromParentBeforeRun),
+			("testIfInheritablePreRunFromParentReturnFalseItAltersExecution", testIfInheritablePreRunFromParentReturnFalseItAltersExecution),
+			("testItRunsInheritablePostRunAfterRun", testItRunsInheritablePostRunAfterRun),
+			("testIfPostRunReturnFalseItAltersExecutionAndInheritableIsNotCalled", testIfPostRunReturnFalseItAltersExecutionAndInheritableIsNotCalled),
+			("testItRunsInheritablePostRunParentAfterRun", testItRunsInheritablePostRunParentAfterRun),
+			("testItExecutesAllRuns", testItExecutesAllRuns),
+			("testItDoesNotCrashIfSomeRunsAreNotSet", testItDoesNotCrashIfSomeRunsAreNotSet),
+			("testIfItHasLotsOfRunsInheritablePreCanStopAllOfThem", testIfItHasLotsOfRunsInheritablePreCanStopAllOfThem),
+			("testIfItHasLotsOfRunsPreCanStopAllOfThemExceptInheritable", testIfItHasLotsOfRunsPreCanStopAllOfThemExceptInheritable)
+		]
+	}
 
   override func setUp() {
     setupTestSamples()
@@ -301,5 +330,4 @@ class CommandRunTests: XCTestCase {
 
     XCTAssertEqual(events, ["ispre", "pre"])
   }
-
 }

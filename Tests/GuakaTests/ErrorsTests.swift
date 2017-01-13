@@ -11,6 +11,17 @@ import XCTest
 
 class ErrorTests: XCTestCase {
 
+	static var allTests: [(String, (ErrorTests) -> () throws -> Void)] {
+		return [
+			("testItPrintsFlagNotFoundMessage", testItPrintsFlagNotFoundMessage),
+			("testItPrintsFlagNotFoundError", testItPrintsFlagNotFoundError),
+			("testItPrintsIncorrectFlagValueFoundErrorMessage", testItPrintsIncorrectFlagValueFoundErrorMessage),
+			("testItHelpInErrorCanBeReplaces", testItHelpInErrorCanBeReplaces),
+			("testItHelpInErrorCanBeReplacesCompletely", testItHelpInErrorCanBeReplacesCompletely),
+			("testItPrintsIncorrectFlagValueFoundErrorError", testItPrintsIncorrectFlagValueFoundErrorError)
+		]
+	}
+
   override func setUp() {
     setupTestSamples()
   }

@@ -1,7 +1,17 @@
 import XCTest
 @testable import Guaka
 
-class CommandTest: XCTestCase {
+class CommandTypeTests: XCTestCase {
+
+	static var allTests: [(String, (CommandTypeTests) -> () throws -> Void)] {
+		return [
+			("testItCanGenerateFlagSetForRoot", testItCanGenerateFlagSetForRoot),
+			("testItCanGenerateFlagSetSubCommand", testItCanGenerateFlagSetSubCommand),
+			("testItCanGenerateFlagSetSubCommandAndDoesOverride", testItCanGenerateFlagSetSubCommandAndDoesOverride),
+			("testItCanGetTheRoot", testItCanGetTheRoot),
+			("testItCanGetThePathOfACommand", testItCanGetThePathOfACommand)
+		]
+	}
 
   override func setUp() {
     setupTestSamples()
@@ -52,5 +62,4 @@ class CommandTest: XCTestCase {
     let p2 = show.path
     XCTAssertEqual(p2, ["git", "remote", "show"])
   }
-
 }

@@ -11,6 +11,23 @@ import XCTest
 
 class HelpGeneratorSubclassingTests: XCTestCase {
 
+	static var allTests: [(String, (HelpGeneratorSubclassingTests) -> () throws -> Void)] {
+		return [
+			("testCanOverrideDeprecationSection", testCanOverrideDeprecationSection),
+			("testCanOverrideUsageSection", testCanOverrideUsageSection),
+			("testCanOverrideAliasSection", testCanOverrideAliasSection),
+			("testCanOverrideExampleSection", testCanOverrideExampleSection),
+			("testCanOverrideCommandsSection", testCanOverrideCommandsSection),
+			("testCanOverrideFlagsSection", testCanOverrideFlagsSection),
+			("testCanOverrideCommandDescriptionSection", testCanOverrideCommandDescriptionSection),
+			("testCanOverrideInformationSection", testCanOverrideInformationSection),
+			("testCanOverrideHelpSection", testCanOverrideHelpSection),
+			("testCanOverrideErrorSection", testCanOverrideErrorSection),
+			("testCanOverrideFlagDeprecation", testCanOverrideFlagDeprecation),
+			("testCanOverrideAllSection", testCanOverrideAllSection)
+		]
+	}
+
   override func setUp() {
     setupTestSamples()
   }

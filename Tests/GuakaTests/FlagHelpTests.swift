@@ -11,6 +11,20 @@ import XCTest
 
 class FlagHelpTests: XCTestCase {
 
+	static var allTests: [(String, (FlagHelpTests) -> () throws -> Void)] {
+		return [
+			("testItGeneratesNamesWithLongName", testItGeneratesNamesWithLongName),
+			("testItGeneratesNamesWithShortName", testItGeneratesNamesWithShortName),
+			("testItGeneratesNamesWithDeprecationStatus", testItGeneratesNamesWithDeprecationStatus),
+			("testItGeneratesNamesWithValue", testItGeneratesNamesWithValue),
+			("testItGeneratesNamesWithIntValue", testItGeneratesNamesWithIntValue),
+			("testItGeneratesNamesWithDescription", testItGeneratesNamesWithDescription),
+			("testItGeneratesNamesWithRequiredFlags", testItGeneratesNamesWithRequiredFlags),
+			("testItGeneratesNamesWithRequiredFlagsThatWasSet", testItGeneratesNamesWithRequiredFlagsThatWasSet),
+			("testItGeneratesNamesWithThatWereChanged", testItGeneratesNamesWithThatWereChanged)
+		]
+	}
+
   func testItGeneratesNamesWithLongName() {
     let flag = Flag(longName: "debug", value: true, description: "")
     let fh = FlagHelp(flag: flag)
